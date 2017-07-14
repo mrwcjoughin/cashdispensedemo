@@ -15,8 +15,6 @@ namespace cashdispensedemobackend.Controllers
 
         public UsersController()
         {
-            //_userList.Add( new User() { UserId = 1, UserName = "richard@fnb.co.za", Password = "testmale" } );
-            //_userList.Add( new User() { UserId = 2, UserName = "sally@fnb.co.za", Password = "testfemale" } );
         }
 
 
