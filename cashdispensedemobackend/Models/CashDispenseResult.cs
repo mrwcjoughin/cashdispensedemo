@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace cashdispensedemoshared.Models
+namespace cashdispensedemobackend.Models
 {
     public class CashDispenseResult
     {

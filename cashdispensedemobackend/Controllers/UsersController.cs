@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-using cashdispensedemoshared.Models;
+using cashdispensedemobackend.Models;
 
-namespace testaspdotnetcore.Controllers
+namespace cashdispensedemobackend.Controllers
 {
     [Route("api/[controller]")]
     public class UsersController : Controller

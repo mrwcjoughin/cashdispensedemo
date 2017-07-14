@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace cashdispensedemoshared.Models
+namespace cashdispensedemobackend.Models
 {
     public class User
     {
