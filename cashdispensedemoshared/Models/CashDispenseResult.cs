@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace testaspdotnetcore.Models
+namespace cashdispensedemoshared.Models
 {
     public class CashDispenseResult
     {

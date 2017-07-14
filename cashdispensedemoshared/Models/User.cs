@@ -1,5 +1,6 @@
 ﻿using System;
-namespace testaspdotnetcore.Models
+
+namespace cashdispensedemoshared.Models
 {
     public class User
     {
