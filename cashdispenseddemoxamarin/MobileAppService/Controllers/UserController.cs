@@ -13,68 +13,83 @@ namespace cashdispenseddemoxamarin.Controllers
     {
 		private readonly IUserRepository _userRepository;
 
-		public UserController(IUserRepository UserRepository)
+		public UserController(IUserRepository userRepository)
 		{
-			_userRepository = UserRepository;
+			_userRepository = userRepository;
 		}
 
-		// GET: api/values
-		[HttpGet]
-		public IActionResult List()
-		{
-			return Ok(_userRepository.GetAll());
-		}
+		//// GET: api/values
+		//[HttpGet]
+		//public IActionResult List()
+		//{
+		//	return Ok(_userRepository.GetAll());
+		//}
 
-		[HttpGet("{Id}")]
-		public User GetUser(string id)
+		[HttpPut("{user}")]
+		public IActionResult Login(User user)
 		{
-			User user = _userRepository.Get(id);
-			return user;
-		}
+            User userLoginCheck = _userRepository.GetAll().Where((User arg) => arg.UserName == user.UserName && arg.Password == user.UserName).FirstOrDefault();
 
-		[HttpPost]
-		public IActionResult Create([FromBody]User User)
-		{
-			try
-			{
-				if (User == null || !ModelState.IsValid)
+            if (userLoginCheck != null)
+            {
+                if (userLoginCheck.Id != null)
+                {
+                    return Ok(userLoginCheck.Id);
+                }
+				else
 				{
-					return BadRequest("Invalid State");
+					return NotFound();
 				}
-
-				_userRepository.Add(User);
-
-			}
-			catch (Exception)
-			{
-				return BadRequest("Error while creating");
-			}
-			return Ok(User);
+            }
+            else
+            {
+                return NotFound();
+            }
 		}
 
-		[HttpPut]
-		public IActionResult Edit([FromBody] User User)
-		{
-			try
-			{
-				if (User == null || !ModelState.IsValid)
-				{
-					return BadRequest("Invalid State");
-				}
-				_userRepository.Update(User);
-			}
-			catch (Exception)
-			{
-				return BadRequest("Error while creating");
-			}
-			return NoContent();
-		}
+		//[HttpPost]
+		//public IActionResult Create([FromBody]User user)
+		//{
+		//	try
+		//	{
+		//		if (user == null || !ModelState.IsValid)
+		//		{
+		//			return BadRequest("Invalid State");
+		//		}
 
-		[HttpDelete("{Id}")]
-		public void Delete(string id)
-		{
-			_userRepository.Remove(id);
+		//		_userRepository.Add(user);
 
-		}
+		//	}
+		//	catch (Exception)
+		//	{
+		//		return BadRequest("Error while creating");
+		//	}
+		//	return Ok(User);
+		//}
+
+		//[HttpPut]
+		//public IActionResult Edit([FromBody] User user)
+		//{
+		//	try
+		//	{
+		//		if (user == null || !ModelState.IsValid)
+		//		{
+		//			return BadRequest("Invalid State");
+		//		}
+		//		_userRepository.Update(user);
+		//	}
+		//	catch (Exception)
+		//	{
+		//		return BadRequest("Error while creating");
+		//	}
+		//	return NoContent();
+		//}
+
+		//[HttpDelete("{Id}")]
+		//public void Delete(string id)
+		//{
+		//	_userRepository.Remove(id);
+
+		//}
     }
 }

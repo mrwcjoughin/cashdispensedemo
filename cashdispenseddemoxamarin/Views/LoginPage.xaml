@@ -189,7 +189,7 @@
                         BackgroundColor="Transparent"
                         Placeholder="Email Address"
                         PlaceholderColor="Gray"
-                        Text="{Binding EmailAddress}"
+                        Text="{Binding UserName}"
                         >
                     </Entry>
                 </ContentView>

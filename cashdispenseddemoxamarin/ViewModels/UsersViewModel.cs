@@ -6,23 +6,16 @@ using Xamarin.Forms;
 
 namespace cashdispenseddemoxamarin.ViewModels
 {
-    public class CashDispenseResultsViewModel : BaseViewModel
+    public class UsersViewModel : BaseViewModel
     {
-        public ObservableRangeCollection<CashDispenseResult> CashDispenseResults { get; set; }
+        public ObservableRangeCollection<User> Users { get; set; }
         public Command LoadItemsCommand { get; set; }
 
-        public CashDispenseResultsViewModel()
+        public UsersViewModel()
         {
             Title = "Browse";
-            CashDispenseResults = new ObservableRangeCollection<CashDispenseResult>();
+            Users = new ObservableRangeCollection<User>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
-
-            MessagingCenter.Subscribe<NewCashDispenseResultPage, CashDispenseResult>(this, "AddItem", async (obj, item) =>
-            {
-                var _item = item as CashDispenseResult;
-                CashDispenseResults.Add(_item);
-                await CashDispenseResultDataStore.AddItemAsync(_item);
-            });
         }
 
         async Task ExecuteLoadItemsCommand()
@@ -34,9 +27,9 @@ namespace cashdispenseddemoxamarin.ViewModels
 
             try
             {
-                CashDispenseResults.Clear();
-                var items = await CashDispenseResultDataStore.GetItemsAsync(true);
-                CashDispenseResults.ReplaceRange(items);
+                Users.Clear();
+                var items = await UserDataStore.GetItemsAsync(true);
+                Users.ReplaceRange(items);
             }
             catch (Exception ex)
             {

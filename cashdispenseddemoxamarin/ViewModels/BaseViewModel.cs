@@ -8,7 +8,8 @@ namespace cashdispenseddemoxamarin.ViewModels
         /// <summary>
         /// Get the azure service instance
         /// </summary>
-        public IDataStore<CashDispenseResult> DataStore => DependencyService.Get<IDataStore<CashDispenseResult>>();
+        public IDataStore<CashDispenseResult> CashDispenseResultDataStore => DependencyService.Get<IDataStore<CashDispenseResult>>();
+        public IDataStore<User> UserDataStore => DependencyService.Get<IDataStore<User>>();
 
         bool isBusy = false;
         public bool IsBusy

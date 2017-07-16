@@ -7,7 +7,7 @@ namespace cashdispenseddemoxamarin
     public partial class App : Application
     {
         public static bool UseMockDataStore = false;
-        public static string BackendUrl = "https://localhost:5000";
+        public static string BackendUrl = "https://localhost:58239";
 
         public static IDictionary<string, string> LoginParameters => null;
 
@@ -16,9 +16,14 @@ namespace cashdispenseddemoxamarin
             InitializeComponent();
 
             if (UseMockDataStore)
+            {
                 DependencyService.Register<MockDataStore>();
+            }
             else
-                DependencyService.Register<CloudDataStore>();
+            {
+                DependencyService.Register<CashDispenseResultCloudDataStore>();
+                DependencyService.Register<UserCloudDataStore>();
+            }
 
             SetMainPage();
         }

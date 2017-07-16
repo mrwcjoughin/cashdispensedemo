@@ -10,12 +10,12 @@ using Plugin.Connectivity;
 
 namespace cashdispenseddemoxamarin
 {
-    public class CloudDataStore : IDataStore<CashDispenseResult>
+    public class CashDispenseResultCloudDataStore : IDataStore<CashDispenseResult>
     {
         HttpClient client;
         IEnumerable<CashDispenseResult> items;
 
-        public CloudDataStore()
+        public CashDispenseResultCloudDataStore()
         {
             client = new HttpClient();
             client.BaseAddress = new Uri($"{App.BackendUrl}/");
@@ -27,7 +27,7 @@ namespace cashdispenseddemoxamarin
         {
             if (forceRefresh && CrossConnectivity.Current.IsConnected)
             {
-                var json = await client.GetStringAsync($"api/item");
+                var json = await client.GetStringAsync($"api/CashDispenseResult");
                 items = await Task.Run(() => JsonConvert.DeserializeObject<IEnumerable<CashDispenseResult>>(json));
             }
 
@@ -38,7 +38,7 @@ namespace cashdispenseddemoxamarin
         {
             if (id != null && CrossConnectivity.Current.IsConnected)
             {
-                var json = await client.GetStringAsync($"api/item/{id}");
+                var json = await client.GetStringAsync($"api/CashDispenseResult/{id}");
                 items = await Task.Run(() => JsonConvert.DeserializeObject<IEnumerable<CashDispenseResult>>(json));
             }
 
@@ -52,7 +52,7 @@ namespace cashdispenseddemoxamarin
 
             var serializedItem = JsonConvert.SerializeObject(item);
 
-            var response = await client.PostAsync($"api/item", new StringContent(serializedItem, Encoding.UTF8, "application/json"));
+            var response = await client.PostAsync($"api/CashDispenseResult", new StringContent(serializedItem, Encoding.UTF8, "application/json"));
 
             return response.IsSuccessStatusCode ? true : false;
         }
@@ -66,7 +66,7 @@ namespace cashdispenseddemoxamarin
             var buffer = System.Text.Encoding.UTF8.GetBytes(serializedItem);
             var byteContent = new ByteArrayContent(buffer);
 
-            var response = await client.PutAsync(new Uri($"api/item/{item.Id}"), byteContent);
+            var response = await client.PutAsync(new Uri($"api/CashDispenseResult/{item.Id}"), byteContent);
 
             return response.IsSuccessStatusCode ? true : false;
         }
@@ -76,7 +76,7 @@ namespace cashdispenseddemoxamarin
             if (string.IsNullOrEmpty(id) && !CrossConnectivity.Current.IsConnected)
                 return false;
 
-            var response = await client.DeleteAsync($"api/item/{id}");
+            var response = await client.DeleteAsync($"api/CashDispenseResult/{id}");
 
             return response.IsSuccessStatusCode ? true : false;
         }

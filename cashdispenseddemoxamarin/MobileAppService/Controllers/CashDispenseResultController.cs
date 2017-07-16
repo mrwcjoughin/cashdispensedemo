@@ -8,24 +8,24 @@ namespace cashdispenseddemoxamarin.Controllers
     [Route("api/[controller]")]
     public class CashDispenseResultController : Controller
     {
-        private readonly ICashDispenseResultRepository _CashDispenseResultRepository;
+        private readonly ICashDispenseResultRepository _cashDispenseResultRepository;
 
         public CashDispenseResultController(ICashDispenseResultRepository CashDispenseResultRepository)
         {
-            _CashDispenseResultRepository = CashDispenseResultRepository;
+            _cashDispenseResultRepository = CashDispenseResultRepository;
         }
 
         // GET: api/values
         [HttpGet]
         public IActionResult List()
         {
-            return Ok(_CashDispenseResultRepository.GetAll());
+            return Ok(_cashDispenseResultRepository.GetAll());
         }
 
         [HttpGet("{Id}")]
         public CashDispenseResult GetCashDispenseResult(string id)
         {
-            CashDispenseResult CashDispenseResult = _CashDispenseResultRepository.Get(id);
+            CashDispenseResult CashDispenseResult = _cashDispenseResultRepository.Get(id);
             return CashDispenseResult;
         }
 
@@ -39,7 +39,7 @@ namespace cashdispenseddemoxamarin.Controllers
                     return BadRequest("Invalid State");
                 }
 
-                _CashDispenseResultRepository.Add(CashDispenseResult);
+                _cashDispenseResultRepository.Add(CashDispenseResult);
 
             }
             catch (Exception)
@@ -58,7 +58,7 @@ namespace cashdispenseddemoxamarin.Controllers
                 {
                     return BadRequest("Invalid State");
                 }
-                _CashDispenseResultRepository.Update(CashDispenseResult);
+                _cashDispenseResultRepository.Update(CashDispenseResult);
             }
             catch (Exception)
             {
@@ -70,7 +70,7 @@ namespace cashdispenseddemoxamarin.Controllers
         [HttpDelete("{Id}")]
         public void Delete(string id)
         {
-            _CashDispenseResultRepository.Remove(id);
+            _cashDispenseResultRepository.Remove(id);
 
         }
     }
