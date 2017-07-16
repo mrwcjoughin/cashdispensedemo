@@ -1,5 +1,7 @@
-﻿using cashdispenseddemoxamarin.Models;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
+
+using cashdispenseddemoxamarin.Models;
+using cashdispenseddemoxamarin.Services;
 
 namespace cashdispenseddemoxamarin.ViewModels
 {

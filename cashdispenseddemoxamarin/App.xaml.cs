@@ -2,12 +2,14 @@
 
 using Xamarin.Forms;
 
+using cashdispenseddemoxamarin.Services;
+
 namespace cashdispenseddemoxamarin
 {
     public partial class App : Application
     {
         public static bool UseMockDataStore = false;
-        public static string BackendUrl = "https://localhost:58239";
+        public static string BackendUrl = "http://localhost:58239";
 
         public static IDictionary<string, string> LoginParameters => null;
 

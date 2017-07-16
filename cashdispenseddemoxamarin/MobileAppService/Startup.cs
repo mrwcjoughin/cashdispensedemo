@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 
 using Swashbuckle.AspNetCore.Swagger;
 
-using cashdispenseddemoxamarin.Models;
+using cashdispenseddemoxamarin.MobileAppService.Models;
 
 namespace cashdispenseddemoxamarin.MobileAppService
 {
@@ -34,6 +34,7 @@ namespace cashdispenseddemoxamarin.MobileAppService
         {
             services.AddMvc();
             services.AddSingleton<ICashDispenseResultRepository, CashDispenseResultRepository>();
+            services.AddSingleton<IUserRepository, UserRepository>();
 
             services.AddSwaggerGen(c =>
             {

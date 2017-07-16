@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace cashdispenseddemoxamarin
+namespace cashdispenseddemoxamarin.Services
 {
     public interface IDataStore<T>
     {

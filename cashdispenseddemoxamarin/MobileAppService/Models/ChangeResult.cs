@@ -1,23 +1,23 @@
 ﻿using System;
 
-namespace cashdispenseddemoxamarin.Models
+namespace cashdispenseddemoxamarin.MobileAppService.Models
 {
-    public class Cash
+    public class ChangeResult
     {
-        public Cash()
+        public ChangeResult()
         {
         }
 
-        public decimal Number
-        {
-            get;
-            set;
-        }
-
-		public string Denomination
+		public short Quantity
 		{
 			get;
 			set;
 		}
+
+        public Cash Cash
+        {
+            get;
+            set;
+        }
     }
 }

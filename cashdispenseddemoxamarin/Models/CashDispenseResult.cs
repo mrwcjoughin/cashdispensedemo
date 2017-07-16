@@ -7,7 +7,7 @@ namespace cashdispenseddemoxamarin.Models
     {
         public CashDispenseResult()
         {
-            ChangeResults = new List<Cash>();
+            ChangeResults = new List<ChangeResult>();
         }
 
 		public string Id
@@ -22,7 +22,7 @@ namespace cashdispenseddemoxamarin.Models
 			set;
 		}
 
-        public List<Cash> ChangeResults
+        public List<ChangeResult> ChangeResults
         {
             get;
             set;

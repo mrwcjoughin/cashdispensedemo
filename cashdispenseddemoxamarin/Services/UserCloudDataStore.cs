@@ -8,7 +8,7 @@ using cashdispenseddemoxamarin.Models;
 using Newtonsoft.Json;
 using Plugin.Connectivity;
 
-namespace cashdispenseddemoxamarin
+namespace cashdispenseddemoxamarin.Services
 {
     public class UserCloudDataStore : IDataStore<User>
     {
@@ -66,7 +66,7 @@ namespace cashdispenseddemoxamarin
             var buffer = System.Text.Encoding.UTF8.GetBytes(serializedItem);
             var byteContent = new ByteArrayContent(buffer);
 
-            var response = await client.PutAsync(new Uri($"api/User/{item.Id}"), byteContent);
+            var response = await client.PutAsync($"api/User/{item.Id}", byteContent);
 
             return response.IsSuccessStatusCode ? true : false;
         }
@@ -85,14 +85,15 @@ namespace cashdispenseddemoxamarin
 		{
 			if (user == null || user.UserName == null || !CrossConnectivity.Current.IsConnected)
 				return string.Empty;
+            
+            var jsonSerializerSettings = new JsonSerializerSettings();
+            jsonSerializerSettings.Formatting = Formatting.Indented;
+            jsonSerializerSettings.TypeNameHandling = TypeNameHandling.All;
+			var serializedItem = JsonConvert.SerializeObject(user, user.GetType(), jsonSerializerSettings);
 
-            user.Id = "0";
-			var serializedUser = JsonConvert.SerializeObject(user);
-			var buffer = System.Text.Encoding.UTF8.GetBytes(serializedUser);
-			var byteContent = new ByteArrayContent(buffer);
+            var stringContent = new StringContent(serializedItem, Encoding.UTF8, "application/json");
 
-			var response = await client.PutAsync(new Uri($"api/User/{user.Id}"), byteContent);
-
+			var response = await client.PostAsync($"api/User", stringContent);
 
             if (response.IsSuccessStatusCode)
             {

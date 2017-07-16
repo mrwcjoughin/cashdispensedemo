@@ -45,6 +45,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)StylesPage.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\UserCloudDataStore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\UsersViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Cash.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CashDispenseResultNewViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\CashDispenseDueCloudDataStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\CashDispenseDue.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml" />

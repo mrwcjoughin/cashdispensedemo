@@ -10,14 +10,15 @@ using cashdispenseddemoxamarin.Models;
 
 namespace cashdispenseddemoxamarin.ViewModels
 {
-    public class CashDispenseResultDetailViewModel : BaseViewModel
+    public class CashDispenseResultNewViewModel : BaseViewModel
     {
         public CashDispenseResult CashDispenseResult { get; set; }
 
-        public CashDispenseResultDetailViewModel(CashDispenseResult item = null)
+        public CashDispenseResultNewViewModel()
         {
-            //Title = item.Text;
-            CashDispenseResult = item;
+            CashDispenseResult = new CashDispenseResult();
+
+
         }
     }
 }

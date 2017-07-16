@@ -8,7 +8,7 @@ using cashdispenseddemoxamarin.Models;
 using Newtonsoft.Json;
 using Plugin.Connectivity;
 
-namespace cashdispenseddemoxamarin
+namespace cashdispenseddemoxamarin.Services
 {
     public class CashDispenseResultCloudDataStore : IDataStore<CashDispenseResult>
     {

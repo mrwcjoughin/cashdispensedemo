@@ -5,6 +5,8 @@ using System.Windows.Input;
 using cashdispenseddemoxamarin.Models;
 using Xamarin.Forms;
 
+using cashdispenseddemoxamarin.Services;
+
 namespace cashdispenseddemoxamarin.ViewModels
 {
     public class LoginViewModel : BaseViewModel

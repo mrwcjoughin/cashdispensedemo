@@ -2,19 +2,19 @@
 
 namespace cashdispenseddemoxamarin.Models
 {
-    public class ChangeResult
+    public class Cash
     {
-        public ChangeResult()
+        public Cash()
         {
         }
 
-		public short Quantity
+		public decimal Number
 		{
 			get;
 			set;
 		}
 
-		public Cash Cash
+		public string Denomination
 		{
 			get;
 			set;

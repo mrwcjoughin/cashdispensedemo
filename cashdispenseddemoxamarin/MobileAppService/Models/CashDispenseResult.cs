@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace cashdispenseddemoxamarin.Models
+namespace cashdispenseddemoxamarin.MobileAppService.Models
 {
     public class CashDispenseResult
     {

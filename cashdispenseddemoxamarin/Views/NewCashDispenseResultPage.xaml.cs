@@ -3,27 +3,30 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 using cashdispenseddemoxamarin.Models;
+using cashdispenseddemoxamarin.ViewModels;
 
 namespace cashdispenseddemoxamarin
 {
     public partial class NewCashDispenseResultPage : ContentPage
     {
-        public CashDispenseResult CashDispenseResult { get; set; }
-
         public NewCashDispenseResultPage()
         {
             InitializeComponent();
 
-            CashDispenseResult = new CashDispenseResult
-            {
-            };
+            BindingContext = new CashDispenseResultNewViewModel();
+        }
 
-            BindingContext = this;
+        public CashDispenseResultNewViewModel ViewModel
+        {
+            get
+            {
+                return (CashDispenseResultNewViewModel)BindingContext;
+            }
         }
 
         async void Save_Clicked(object sender, EventArgs e)
         {
-            MessagingCenter.Send(this, "AddItem", CashDispenseResult);
+            MessagingCenter.Send(this, "AddItem", ViewModel);
             await Navigation.PopToRootAsync();
         }
     }

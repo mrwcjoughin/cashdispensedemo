@@ -4,9 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-using cashdispenseddemoxamarin.Models;
+using Newtonsoft.Json;
 
-namespace cashdispenseddemoxamarin.Controllers
+using cashdispenseddemoxamarin.MobileAppService.Models;
+
+namespace cashdispenseddemoxamarin.MobileAppService.Controllers
 {
     [Route("api/[controller]")]
     public class UserController : Controller
@@ -25,10 +27,11 @@ namespace cashdispenseddemoxamarin.Controllers
 		//	return Ok(_userRepository.GetAll());
 		//}
 
-		[HttpPut("{user}")]
-		public IActionResult Login(User user)
+        //public IActionResult Login([FromBody]User user)
+		[HttpPost]
+		public IActionResult Login([FromBody]User user)
 		{
-            User userLoginCheck = _userRepository.GetAll().Where((User arg) => arg.UserName == user.UserName && arg.Password == user.UserName).FirstOrDefault();
+            User userLoginCheck = _userRepository.GetAll().Where((User arg) => arg.UserName == user.UserName && arg.Password == user.Password).FirstOrDefault();
 
             if (userLoginCheck != null)
             {
