@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using cashdispenseddemoxamarin.Models;
+
 using Xamarin.Forms;
+
+using Models;
 
 namespace cashdispenseddemoxamarin.ViewModels
 {

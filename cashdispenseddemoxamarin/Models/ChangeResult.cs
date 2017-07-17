@@ -1,14 +1,10 @@
 ﻿using System;
 
-namespace cashdispenseddemoxamarin.Models
+namespace Models
 {
     public class ChangeResult
     {
-        public ChangeResult()
-        {
-        }
-
-		public short Quantity
+        public short Quantity
 		{
 			get;
 			set;

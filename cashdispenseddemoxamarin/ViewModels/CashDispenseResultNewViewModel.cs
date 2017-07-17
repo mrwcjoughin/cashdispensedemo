@@ -6,19 +6,40 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
-using cashdispenseddemoxamarin.Models;
+using Models;
+using cashdispenseddemoxamarin.Services;
 
 namespace cashdispenseddemoxamarin.ViewModels
 {
     public class CashDispenseResultNewViewModel : BaseViewModel
     {
-        public CashDispenseResult CashDispenseResult { get; set; }
+        private CashDispenseResult _cashDispenseResult;
+
+        public CashDispenseResult NewCashDispenseResult
+        {
+            get
+            {
+                return _cashDispenseResult;
+            }
+            set
+            {
+                _cashDispenseResult = value;
+                OnPropertyChanged("NewCashDispenseResult");
+            }
+        }
 
         public CashDispenseResultNewViewModel()
         {
-            CashDispenseResult = new CashDispenseResult();
+            Task.Run(async () =>
+            {
+                var cashDispenseResult = new CashDispenseResult();
+                cashDispenseResult.CashDispenseDue = await base.CashDispenseDueCloudDataStore.GetItemAsync();
 
+                cashDispenseResult.CashHandedOver = new Cash();
+                cashDispenseResult.CashHandedOver.Denomination = cashDispenseResult.CashDispenseDue.AmountOwed.Denomination;
 
+                this.NewCashDispenseResult = cashDispenseResult;
+			});
         }
     }
 }

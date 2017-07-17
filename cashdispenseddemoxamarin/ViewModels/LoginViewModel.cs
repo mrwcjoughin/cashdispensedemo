@@ -2,8 +2,9 @@
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using cashdispenseddemoxamarin.Models;
 using Xamarin.Forms;
+
+using Models;
 
 using cashdispenseddemoxamarin.Services;
 

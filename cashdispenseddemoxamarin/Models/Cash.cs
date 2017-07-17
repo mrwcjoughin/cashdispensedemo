@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace cashdispenseddemoxamarin.Models
+namespace Models
 {
     public class Cash
     {
@@ -8,10 +8,18 @@ namespace cashdispenseddemoxamarin.Models
         {
         }
 
-		public decimal Number
+		public string Number
 		{
 			get;
 			set;
+		}
+
+		public string NumberFormatted
+		{
+			get
+			{
+                return String.Format("{0:0.00}", decimal.Parse(Number));
+			}
 		}
 
 		public string Denomination

@@ -4,7 +4,7 @@ using System.Collections.Concurrent;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace cashdispenseddemoxamarin.MobileAppService.Models
+namespace Models
 {
     public class UserRepository : IUserRepository
     {
@@ -13,8 +13,8 @@ namespace cashdispenseddemoxamarin.MobileAppService.Models
 
         public UserRepository()
         {
-            Add(new User { Id = Guid.NewGuid().ToString(), UserName = "richard@fnb.co.za", Password = "testmale" });
-            Add(new User { Id = Guid.NewGuid().ToString(), UserName = "sally@fnb.co.za", Password = "testfemale" });
+            Add(new User { Id = Guid.NewGuid().ToString(), UserName = "richard@superbank.co.za", Password = "testmale" });
+            Add(new User { Id = Guid.NewGuid().ToString(), UserName = "sally@superbank.co.za", Password = "testfemale" });
         }
 
         public User Get(string id)

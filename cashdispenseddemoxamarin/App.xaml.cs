@@ -23,6 +23,7 @@ namespace cashdispenseddemoxamarin
             }
             else
             {
+                DependencyService.Register<CashDispenseDueCloudDataStore>();
                 DependencyService.Register<CashDispenseResultCloudDataStore>();
                 DependencyService.Register<UserCloudDataStore>();
             }
@@ -53,13 +54,8 @@ namespace cashdispenseddemoxamarin
                 Children = {
                     new NavigationPage(new CashDispenseResultsPage())
                     {
-                        Title = "Browse",
+                        Title = "Transactions",
                         Icon = Device.OnPlatform("tab_feed.png", null, null)
-                    },
-                    new NavigationPage(new AboutPage())
-                    {
-                        Title = "About",
-                        Icon = Device.OnPlatform("tab_about.png", null, null)
                     },
                 }
             };

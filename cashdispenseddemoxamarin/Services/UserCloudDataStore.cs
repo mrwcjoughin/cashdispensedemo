@@ -4,9 +4,10 @@ using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using cashdispenseddemoxamarin.Models;
 using Newtonsoft.Json;
 using Plugin.Connectivity;
+
+using Models;
 
 namespace cashdispenseddemoxamarin.Services
 {

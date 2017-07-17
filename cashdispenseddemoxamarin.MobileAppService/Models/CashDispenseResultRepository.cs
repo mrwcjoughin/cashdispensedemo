@@ -4,7 +4,7 @@ using System.Collections.Concurrent;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace cashdispenseddemoxamarin.MobileAppService.Models
+namespace Models
 {
     public class CashDispenseResultRepository : ICashDispenseResultRepository
     {

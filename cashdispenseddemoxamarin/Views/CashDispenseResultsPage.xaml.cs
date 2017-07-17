@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using cashdispenseddemoxamarin.Models;
+
 using Xamarin.Forms;
 
+using Models;
 using cashdispenseddemoxamarin.ViewModels;
 
 namespace cashdispenseddemoxamarin
@@ -17,18 +18,6 @@ namespace cashdispenseddemoxamarin
             InitializeComponent();
 
             BindingContext = viewModel = new CashDispenseResultsViewModel();
-        }
-
-        async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
-        {
-            var item = args.SelectedItem as CashDispenseResult;
-            if (item == null)
-                return;
-
-            await Navigation.PushAsync(new CashDispenseResultDetailPage(new CashDispenseResultDetailViewModel(item)));
-
-            // Manually deselect item
-            CashDispenseResultsListView.SelectedItem = null;
         }
 
         async void AddItem_Clicked(object sender, EventArgs e)

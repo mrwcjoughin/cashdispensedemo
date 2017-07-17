@@ -16,15 +16,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\CashDispenseResultCloudDataStore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\IDataStore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\MockDataStore.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AboutViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CashDispenseResultsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\LoginViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\CashDispenseResultDetailPage.xaml.cs">
-      <DependentUpon>CashDispenseResultDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\CashDispenseResultsPage.xaml.cs">
       <DependentUpon>CashDispenseResultsPage.xaml</DependentUpon>
@@ -41,18 +37,16 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\CashDispenseResult.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\ChangeResult.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\User.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CashDispenseResultDetailViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)StylesPage.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\UserCloudDataStore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\UsersViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Cash.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CashDispenseResultNewViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\CashDispenseDueCloudDataStore.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\CashDispenseDue.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\CashDispenseDue.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\CashDispenseResultDetailPage.xaml" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\CashDispenseResultsPage.xaml" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\LoginPage.xaml" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\NewCashDispenseResultPage.xaml" />

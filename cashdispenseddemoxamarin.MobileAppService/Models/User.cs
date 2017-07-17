@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace cashdispenseddemoxamarin.MobileAppService.Models
+namespace Models
 {
     public class User
     {

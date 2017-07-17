@@ -1,7 +1,7 @@
-﻿using System;
+﻿﻿using System;
 using Microsoft.AspNetCore.Mvc;
 
-using cashdispenseddemoxamarin.MobileAppService.Models;
+using Models;
 
 namespace cashdispenseddemoxamarin.MobileAppService.Controllers
 {
@@ -24,16 +24,16 @@ namespace cashdispenseddemoxamarin.MobileAppService.Controllers
 
 		// GET api/values/cash
 		[HttpPost]
-		public IActionResult PostCash(Cash cash)
+		public IActionResult PostCashDispenseResult([FromBody]CashDispenseResult cashDispenseResult)
 		{
-			if (cash.Number < CashDispenseDue.DefaultAmountOwed.Number)
+            if (decimal.Parse(cashDispenseResult.CashHandedOver.Number) < decimal.Parse(cashDispenseResult.CashDispenseDue.AmountOwed.Number))
 			{
 				return BadRequest("The amount you are paying is less than the amount owed");
 			}
 
-			CashDispenseResult cashDispenseResult = new CashDispenseResult();
+			//CashDispenseResult cashDispenseResult = new CashDispenseResult();
 
-			var difference = cash.Number - CashDispenseDue.DefaultAmountOwed.Number;
+            var difference = decimal.Parse(cashDispenseResult.CashHandedOver.Number) - decimal.Parse(cashDispenseResult.CashDispenseDue.AmountOwed.Number);
 
 			var runningDifference = difference;
 
@@ -97,77 +97,30 @@ namespace cashdispenseddemoxamarin.MobileAppService.Controllers
 				runningDifference = Calc(0.05m, "cents", cashDispenseResult, runningDifference);
 			}
 
+            _cashDispenseResultRepository.Add(cashDispenseResult);
+
 			return Ok(cashDispenseResult);
 		}
 
 		private static decimal Calc(decimal number, string denomination, CashDispenseResult cashDispenseResult, decimal runningDifference)
 		{
-			var randNoteResults = runningDifference / number;
+            var randNoteResults = runningDifference / number;
 
 			if (randNoteResults >= 1)
 			{
-				Cash randNotes = new Cash();
-				randNotes.Denomination = denomination;
-				randNotes.Number = Math.Abs(randNoteResults);
+                ChangeResult changeResult = new ChangeResult();
 
-				cashDispenseResult.ChangeResults.Add(randNotes);
+				changeResult.Cash = new Cash();
+				changeResult.Cash.Denomination = denomination;
+				changeResult.Cash.Number = number.ToString();
+                changeResult.Quantity = (short)(Math.Abs(randNoteResults));
 
-				runningDifference -= randNotes.Number * number;
+				cashDispenseResult.ChangeResults.Add(changeResult);
+
+				runningDifference -= (decimal)changeResult.Quantity * number;
 			}
 
 			return runningDifference;
 		}
-
-        //[HttpGet("{Id}")]
-        //public CashDispenseResult GetCashDispenseResult(string id)
-        //{
-        //    CashDispenseResult CashDispenseResult = _cashDispenseResultRepository.Get(id);
-        //    return CashDispenseResult;
-        //}
-
-        //[HttpPost]
-        //public IActionResult Create([FromBody]CashDispenseResult CashDispenseResult)
-        //{
-        //    try
-        //    {
-        //        if (CashDispenseResult == null || !ModelState.IsValid)
-        //        {
-        //            return BadRequest("Invalid State");
-        //        }
-
-        //        _cashDispenseResultRepository.Add(CashDispenseResult);
-
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return BadRequest("Error while creating");
-        //    }
-        //    return Ok(CashDispenseResult);
-        //}
-
-        //[HttpPut]
-        //public IActionResult Edit([FromBody] CashDispenseResult CashDispenseResult)
-        //{
-        //    try
-        //    {
-        //        if (CashDispenseResult == null || !ModelState.IsValid)
-        //        {
-        //            return BadRequest("Invalid State");
-        //        }
-        //        _cashDispenseResultRepository.Update(CashDispenseResult);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return BadRequest("Error while creating");
-        //    }
-        //    return NoContent();
-        //}
-
-        //[HttpDelete("{Id}")]
-        //public void Delete(string id)
-        //{
-        //    _cashDispenseResultRepository.Remove(id);
-
-        //}
     }
 }

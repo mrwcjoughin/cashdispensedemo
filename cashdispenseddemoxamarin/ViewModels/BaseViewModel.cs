@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-using cashdispenseddemoxamarin.Models;
+using Models;
 using cashdispenseddemoxamarin.Services;
 
 namespace cashdispenseddemoxamarin.ViewModels
@@ -10,8 +10,9 @@ namespace cashdispenseddemoxamarin.ViewModels
         /// <summary>
         /// Get the azure service instance
         /// </summary>
-        public IDataStore<CashDispenseResult> CashDispenseResultDataStore => DependencyService.Get<IDataStore<CashDispenseResult>>();
-        public IDataStore<User> UserDataStore => DependencyService.Get<IDataStore<User>>();
+        public CashDispenseDueCloudDataStore CashDispenseDueCloudDataStore => DependencyService.Get<CashDispenseDueCloudDataStore>();
+        public CashDispenseResultCloudDataStore CashDispenseResultDataStore => DependencyService.Get<CashDispenseResultCloudDataStore>();
+        public UserCloudDataStore UserDataStore => DependencyService.Get<UserCloudDataStore>();
 
         bool isBusy = false;
         public bool IsBusy

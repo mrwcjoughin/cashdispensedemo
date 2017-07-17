@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 
 using Swashbuckle.AspNetCore.Swagger;
 
-using cashdispenseddemoxamarin.MobileAppService.Models;
+using Models;
 
 namespace cashdispenseddemoxamarin.MobileAppService
 {

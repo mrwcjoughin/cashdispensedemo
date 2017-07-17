@@ -1,16 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    x:Class="cashdispenseddemoxamarin.NewCashDispenseResultPage" Title="New CashDispenseResult">
+    x:Class="cashdispenseddemoxamarin.NewCashDispenseResultPage" Title="New Transaction">
 	<ContentPage.ToolbarItems>
 		<ToolbarItem Text="Save" Clicked="Save_Clicked" />
 	</ContentPage.ToolbarItems>
 	<ContentPage.Content>
-		<StackLayout Spacing="20" Padding="15">
-			<Label Text="Text" FontSize="Medium" />
-			<Entry Text="{Binding Item.Text}" FontSize="Small" />
-			<Label Text="Description" FontSize="Medium" />
-			<Editor Text="{Binding Item.Description}" FontSize="Small" Margin="0" />
-		</StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+    		<StackLayout Grid.Row="0" Grid.Column="0"
+                HorizontalOptions="FillAndExpand"
+                Spacing="20" Padding="15" Orientation="Vertical">
+                <StackLayout Orientation="Horizontal"
+                    HorizontalOptions="FillAndExpand">
+                    <Label Text="Amount Due:" FontSize="Medium" />
+                    <Label Text="{Binding NewCashDispenseResult.CashDispenseDue.AmountOwed.Denomination}" FontSize="Medium" />
+        			<Label HorizontalOptions="FillAndExpand"
+                        Text="{Binding NewCashDispenseResult.CashDispenseDue.AmountOwed.NumberFormatted}" 
+                        FontSize="Medium" />
+                </StackLayout>
+                <Label HorizontalOptions="FillAndExpand"
+                    Text="Capture rand note denomination" 
+                    FontSize="Medium" />
+                <StackLayout Orientation="Horizontal"
+                    HorizontalOptions="FillAndExpand">
+        			<Label VerticalOptions="Center"
+                        Text="{Binding NewCashDispenseResult.CashHandedOver.Denomination}" 
+                        FontSize="Medium" />
+        			<Entry HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Center"
+                        Text="{Binding NewCashDispenseResult.CashHandedOver.Number}" 
+                        FontSize="Medium"
+                        Margin="0" />
+                </StackLayout>
+    		</StackLayout>
+        </Grid>
 	</ContentPage.Content>
 </ContentPage>

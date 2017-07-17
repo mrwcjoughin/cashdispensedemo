@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 
 using Xamarin.Forms;
-using cashdispenseddemoxamarin.Models;
+
+using Models;
 using cashdispenseddemoxamarin.ViewModels;
 
 namespace cashdispenseddemoxamarin

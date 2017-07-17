@@ -1,17 +1,19 @@
 ﻿using System;
 
-namespace cashdispenseddemoxamarin.Models
+namespace Models
 {
     public class CashDispenseDue
     {
-		public CashDispenseDue()
-        {
-        }
+		public string Id
+		{
+			get;
+			set;
+		}
 
-        public Cash AmountOwed
-        {
-            get;
-            set;
-        }
+		public Cash AmountOwed
+		{
+			get;
+			set;
+		}
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace cashdispensedemobackend.Models
+namespace Models
 {
     public class Cash
     {
@@ -8,11 +8,11 @@ namespace cashdispensedemobackend.Models
         {
         }
 
-        public decimal Number
-        {
-            get;
-            set;
-        }
+		public string Number
+		{
+			get;
+			set;
+		}
 
 		public string Denomination
 		{

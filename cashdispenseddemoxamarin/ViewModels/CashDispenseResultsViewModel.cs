@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using cashdispenseddemoxamarin.Models;
 using Xamarin.Forms;
+
+using Models;
 
 namespace cashdispenseddemoxamarin.ViewModels
 {
@@ -13,15 +14,15 @@ namespace cashdispenseddemoxamarin.ViewModels
 
         public CashDispenseResultsViewModel()
         {
-            Title = "Browse";
+            Title = "Transactions";
             CashDispenseResults = new ObservableRangeCollection<CashDispenseResult>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            MessagingCenter.Subscribe<NewCashDispenseResultPage, CashDispenseResult>(this, "AddItem", async (obj, item) =>
+            MessagingCenter.Subscribe<NewCashDispenseResultPage, CashDispenseResultNewViewModel>(this, "AddItem", async (obj, item) =>
             {
-                var _item = item as CashDispenseResult;
-                CashDispenseResults.Add(_item);
-                await CashDispenseResultDataStore.AddItemAsync(_item);
+                var _item = item as CashDispenseResultNewViewModel;
+                await CashDispenseResultDataStore.AddItemAsync(_item.NewCashDispenseResult);
+                await ExecuteLoadItemsCommand();
             });
         }
 

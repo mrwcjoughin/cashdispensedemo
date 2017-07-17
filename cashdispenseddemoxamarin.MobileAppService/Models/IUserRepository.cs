@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace cashdispenseddemoxamarin.MobileAppService.Models
+namespace Models
 {
     public interface IUserRepository
     {

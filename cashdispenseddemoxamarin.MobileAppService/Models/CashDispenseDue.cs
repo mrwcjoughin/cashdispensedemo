@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace cashdispenseddemoxamarin.MobileAppService.Models
+namespace Models
 {
     public class CashDispenseDue
     {
-		public readonly static Cash DefaultAmountOwed = new Cash() { Denomination = "R", Number = 25.50m };
+		public readonly static Cash DefaultAmountOwed = new Cash() { Denomination = "R", Number = "25.50" };
 
 		public CashDispenseDue()
         {

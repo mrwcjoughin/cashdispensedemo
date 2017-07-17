@@ -1,14 +1,9 @@
 ﻿using System;
 
-namespace cashdispenseddemoxamarin.Models
+namespace Models
 {
     public class User
     {
-        public User()
-        {
-            
-        }
-
         public string Id
         {
             get;

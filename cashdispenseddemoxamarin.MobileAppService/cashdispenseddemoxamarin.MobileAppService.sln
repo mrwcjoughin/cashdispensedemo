@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 15.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cashdispenseddemoxamarin.MobileAppService", "cashdispenseddemoxamarin.MobileAppService.csproj", "{17C3F5AB-0F5C-4A06-BBD4-90AE08C4F0CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{17C3F5AB-0F5C-4A06-BBD4-90AE08C4F0CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17C3F5AB-0F5C-4A06-BBD4-90AE08C4F0CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17C3F5AB-0F5C-4A06-BBD4-90AE08C4F0CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17C3F5AB-0F5C-4A06-BBD4-90AE08C4F0CE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

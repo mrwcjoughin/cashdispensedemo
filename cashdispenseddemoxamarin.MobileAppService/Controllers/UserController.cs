@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 using Newtonsoft.Json;
 
-using cashdispenseddemoxamarin.MobileAppService.Models;
+using Models;
 
 namespace cashdispenseddemoxamarin.MobileAppService.Controllers
 {
