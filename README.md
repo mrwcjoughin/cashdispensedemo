@@ -34,6 +34,7 @@ in the cashdispenseddemoxamarin project which is in the "Common" solution folder
 Then do a full rebuild of the solution and then click the Play button.
 
 Login the application as either of the following users:
+
 UserName:
 richard@superbank.co.za
 Password:
